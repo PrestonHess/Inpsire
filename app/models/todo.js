@@ -4,15 +4,15 @@ export default class Todo {
   constructor(data) {
     this.description = data.description
     this._id = data._id
-    this.complete = false
+    this.completed = data.completed || false
   }
 
   get template() {
     return /*html*/ `
     <li class="list-group-item text-light bg-dark">
       <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" ${this.complete ? "checked" : ''} 
-        onclick="app.listController.toggleTags('${this._id}')" 
+        <input type="checkbox" ${this.completed ? "checked" : ''} 
+        onclick="app.todoController.toggleTodoStatus('${this._id}')" 
         class="custom-control-input"
         id="completed-${this._id}">
         <label class="custom-control-label" for="completed-${this._id}">${this.description}</label>

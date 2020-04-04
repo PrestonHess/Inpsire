@@ -9,11 +9,9 @@ const todoApi = axios.create({
 
 class TodoService {
 
-  toggleTags(){
-
-  }
+  // NOTE getTodos is a get request from the todoApi once a response comes back
+  // it maps through the todos as a new Todo before commiting to the store
   getTodos() {
-    console.log("Getting the Todo List");
     todoApi.get()
       .then(res => {
         console.log(res)
@@ -22,9 +20,9 @@ class TodoService {
       })
       .catch(err => console.error(err)
       )
-    //TODO Handle this response from the server
   }
 
+  // addTodoAsync will create a new todo instance on the api after user submits a todo form
   addTodoAsync(todo) {
     todoApi.post("", todo)
       .then(res => {
@@ -32,21 +30,26 @@ class TodoService {
         store.commit('todos', [newTodo, ...store.State.todos])
       })
       .catch(err => console.error(err))
-    //TODO Handle this response from the server (hint: what data comes back, do you want this?)
   }
 
-  // toggleTodoStatusAsync(todoId) {
-  //   let todo = store.State.todos.find(todo => todo._id == todoId);
-  //   //TODO Make sure that you found a todo,
-  //   //		and if you did find one
-  //   //		change its completed status to whatever it is not (ex: false => true or true => false)
+  // Toggle Todo status will change this completed porperty thats set to a boolean
+  // this function will also update the store and the todoApi
+  toggleTodoStatusAsync(todoId) {
+    let todo = store.State.todos.find(todo => todo._id == todoId);
+    if (todo) {
+      !todo.completed ? todo.completed = true : todo.completed = false;
+    }
+    todoApi.put(todoId, todo)
+      .then(res => {
+      })
+      .catch(err => {
+        console.error(err)
+      })
+  }
 
-  //   todoApi.put(todoId, todo);
-  //   //TODO do you care about this data? or should you go get something else?
-  // }
-
+  // Removes the todo which is identify by the todoID and deleted from the Api
+  // getTodos is called to update store after receiving a response from the call request
   removeTodoAsync(todoId) {
-    //TODO Work through this one on your own
     todoApi.delete(todoId)
       .then(res => {
         this.getTodos()
@@ -54,8 +57,6 @@ class TodoService {
       .catch(err => {
         console.error(err)
       })
-    //		what is the request type
-    //		once the response comes back, what do you need to insure happens?
   }
 }
 

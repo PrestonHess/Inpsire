@@ -11,6 +11,6 @@ let _drawBGImg = function () {
 export default class ImageController {
 
   constructor() {
-    // store.subscribe('img', _drawBGImg)
+    store.subscribe('img', _drawBGImg)
   }
 }
