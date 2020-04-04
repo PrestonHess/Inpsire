@@ -1,0 +1,11 @@
+#todo-error{
+  color: red;
+  font-size: 2em;
+}
+
+#bg-image{
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
