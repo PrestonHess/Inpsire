@@ -14,7 +14,14 @@ class TodoService {
   }
   getTodos() {
     console.log("Getting the Todo List");
-    todoApi.get();
+    todoApi.get()
+      .then(res => {
+        console.log(res)
+        let newTodos = res.data.data.map(todo => new Todo(todo))
+        store.commit('todos', newTodos)
+      })
+      .catch(err => console.error(err)
+      )
     //TODO Handle this response from the server
   }
 
@@ -22,7 +29,7 @@ class TodoService {
     todoApi.post("", todo)
       .then(res => {
         let newTodo = new Todo(res.data.data)
-        store.commit('todos', [newTodo])
+        store.commit('todos', [newTodo, ...store.State.todos])
       })
       .catch(err => console.error(err))
     //TODO Handle this response from the server (hint: what data comes back, do you want this?)
@@ -40,6 +47,13 @@ class TodoService {
 
   removeTodoAsync(todoId) {
     //TODO Work through this one on your own
+    todoApi.delete(todoId)
+      .then(res => {
+        this.getTodos()
+      })
+      .catch(err => {
+        console.error(err)
+      })
     //		what is the request type
     //		once the response comes back, what do you need to insure happens?
   }

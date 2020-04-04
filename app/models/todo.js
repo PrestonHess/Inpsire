@@ -15,8 +15,8 @@ export default class Todo {
         onclick="app.listController.toggleTags('${this._id}')" 
         class="custom-control-input"
         id="completed-${this._id}">
-        <label class="custom-control-label" for="completed-${this._id}">Task</label>
-        <button type="button" class="close text-danger">
+        <label class="custom-control-label" for="completed-${this._id}">${this.description}</label>
+        <button type="button" class="close text-danger" onclick="app.todoController.removeTodo('${this._id}')">
           <span>&times;</span>
         </button>
       </div>
