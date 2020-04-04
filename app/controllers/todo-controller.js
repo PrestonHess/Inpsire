@@ -10,6 +10,10 @@ export default class TodoController {
     TodoService.getTodos();
   }
 
+  toggleTags() {
+    TodoService.toggleTags();
+  }
+
   addTodo(e) {
     e.preventDefault();
     var form = e.target;

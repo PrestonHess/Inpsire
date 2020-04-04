@@ -27,9 +27,35 @@
 					<div id="weather" class="col-12">
 						<!-- weather renders here -->
 					</div>
-				</div>
-			</section>
+        </div>
+        
+        <div class="row">
+          <div class="col-12">
+            <div class="card text-light bg-dark shadow m-1" style="width: 18rem;">
+              <div class="card-header text-center">
+                ToDo
+              </div>
+              <ul id="todo" class="list-group text-light bg-dark list-group-flush">
+                <!-- Todo tasks render here -->
+              </ul>
+              <!-- Add Task Form -->
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-light bg-dark">
+                  <form class="input-group my-1" onsubmit="app.todoController.addTodo(event)">
+                    <div class="input-group-prepend">
+                      <button class="btn btn-outline-success" type="submit">+</button>
+                    </div>
+                    <input type="text" name="task" class="bg-light form-control" placeholder="Add Task" aria-describedby="basic-addon1">
+                  </form>
+                </li>
+              </ul>
+            </div>
 
+          </div>
+        </div>
+
+      </section>
+      
 		</main>
 
 		<footer>
@@ -40,12 +66,12 @@
       The Quote
     </div>
 
-    <div>
+    <!-- <div>
       A Todo List
       <div id="todo-error"></div>
       <form onsubmit=""></form>
       <div id="todos"></div>
-    </div>
+    </div> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
