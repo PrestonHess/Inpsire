@@ -1,4 +1,5 @@
 import store from "../store.js";
+import Todo from "../models/todo.js"
 
 // @ts-ignore
 const todoApi = axios.create({
@@ -9,7 +10,7 @@ const todoApi = axios.create({
 class TodoService {
 
   toggleTags(){
-    
+
   }
   getTodos() {
     console.log("Getting the Todo List");
@@ -18,19 +19,24 @@ class TodoService {
   }
 
   addTodoAsync(todo) {
-    todoApi.post("", todo);
+    todoApi.post("", todo)
+      .then(res => {
+        let newTodo = new Todo(res.data.data)
+        store.commit('todos', [newTodo])
+      })
+      .catch(err => console.error(err))
     //TODO Handle this response from the server (hint: what data comes back, do you want this?)
   }
 
-  toggleTodoStatusAsync(todoId) {
-    let todo = store.State.todos.find(todo => todo._id == todoId);
-    //TODO Make sure that you found a todo,
-    //		and if you did find one
-    //		change its completed status to whatever it is not (ex: false => true or true => false)
+  // toggleTodoStatusAsync(todoId) {
+  //   let todo = store.State.todos.find(todo => todo._id == todoId);
+  //   //TODO Make sure that you found a todo,
+  //   //		and if you did find one
+  //   //		change its completed status to whatever it is not (ex: false => true or true => false)
 
-    todoApi.put(todoId, todo);
-    //TODO do you care about this data? or should you go get something else?
-  }
+  //   todoApi.put(todoId, todo);
+  //   //TODO do you care about this data? or should you go get something else?
+  // }
 
   removeTodoAsync(todoId) {
     //TODO Work through this one on your own
