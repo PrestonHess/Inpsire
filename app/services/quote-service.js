@@ -14,14 +14,11 @@ class QuoteService {
   }
 
   getQuote() {
-    debugger
     _quoteApi.get()
       .then(res => {
         let quoteData = res.data.quote;
-        console.log(quoteData)
         let newQuote = new Quote(quoteData)
         store.commit('quote', newQuote)
-        console.log(store.State.quote)
       })
       .catch(err => {
         console.log(err)

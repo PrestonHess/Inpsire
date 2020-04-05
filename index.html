@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
-  <body class="container-fluid img-fluid" id="bg-image">
-		<header>
+  <body class="container-fluid" id="bg-image">
+    <header>
       <!-- Weather -->
       <section class="row">
         <div id="weather" class="d-flex col-12">
@@ -26,53 +26,63 @@
           </div>
         </div>
       </section>
+    </header>
 
-		</header>
+    <main>
+    </main>
 
-		<main>
-        
-        <div class="row">
-          <div class="col-6">
-
-          </div>
+    <footer>
+      <!-- Qoutes & ToDo -->
+      <section class="row fixed-bottom">
+        <div
+          id="quote"
+          class="col-12 col-md-8 text-center mt-auto"
+        >
+          <!-- Qoute Injected Here -->
         </div>
 
-      </main>
-      
-      <footer>
-
-        <!-- Qoute -->
-        <section class="row">
-          <div id="quote" class="col-12 col-md-6 offset-md-3 text-center fixed-bottom">
-            <!-- Qoute Injected Here -->
-          </div>
-        </section>
-
-        <!-- ToDo -->
-        <section class="row">
-          <div class="col-12 fixed-bottom d-flex">
-            <div class="card text-light bg-dark shadow ml-auto my-4">
-              <div class="card-header text-center">
-                ToDo <span id="todo-count" class="mx-1 badge badge-pill badge-danger"></span>
-              </div>
-              <ul id="todos" class="list-group text-light bg-dark list-group-flush">
-                <!-- Todo tasks render here -->
-              </ul>
-              <!-- Add Todo Form -->
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item text-light bg-dark">
-                  <form class="input-group my-1" onsubmit="app.todoController.addTodo(event)">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-success" type="submit">+</button>
-                    </div>
-                    <input type="text" required name="description" class="bg-light form-control" placeholder="Add Task" aria-describedby="basic-addon1">
-                  </form>
-                </li>
-              </ul>
+        <div class="col-12 order-md-1 justify-content-center col-md-4 d-flex">
+          <div class="card text-light bg-dark shadow my-4">
+            <div class="card-header text-center">
+              ToDo
+              <span
+                id="todo-count"
+                class="mx-1 badge badge-pill badge-danger"
+              ></span>
             </div>
+            <ul
+              id="todos"
+              class="list-group text-light bg-dark list-group-flush"
+            >
+              <!-- Todo tasks render here -->
+            </ul>
+            <!-- Add Todo Form -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-light bg-dark">
+                <form
+                  class="input-group my-1"
+                  onsubmit="app.todoController.addTodo(event)"
+                >
+                  <div class="input-group-prepend">
+                    <button class="btn btn-outline-success" type="submit">
+                      +
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    name="description"
+                    class="bg-light form-control"
+                    placeholder="Add Task"
+                    aria-describedby="basic-addon1"
+                  />
+                </form>
+              </li>
+            </ul>
           </div>
-        </section>
-		</footer>
+        </div>
+      </section>
+    </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -90,10 +100,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-		<!-- Axios -->
+    <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="app/main.js"></script>
   </body>
 </html>
-
-
