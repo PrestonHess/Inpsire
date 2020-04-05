@@ -23,7 +23,6 @@ class ImageService {
 
 
   constructor() {
-    this.getImg()
   }
 }
 

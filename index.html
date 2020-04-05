@@ -17,23 +17,40 @@
 
   <body class="container-fluid img-fluid" id="bg-image">
 		<header>
+      <!-- Weather -->
+      <section class="row">
+        <div id="weather" class="d-flex col-12">
+          <!-- weather renders here -->
+          <div class="ml-auto my-4 spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </section>
 
 		</header>
 
 		<main>
-			
-			<section class="container-fluid">
-				<div class="row">
-					<div id="weather" class="d-flex col-12">
-            <!-- weather renders here -->
-            <div class="ml-auto my-4 spinner-border text-light" role="status">
-              <span class="sr-only">Loading...</span>
-            </div>
-					</div>
-        </div>
         
         <div class="row">
-          <div class="col-12 d-flex">
+          <div class="col-6">
+
+          </div>
+        </div>
+
+      </main>
+      
+      <footer>
+
+        <!-- Qoute -->
+        <section class="row">
+          <div id="quote" class="col-12 col-md-6 offset-md-3 text-center fixed-bottom">
+            <!-- Qoute Injected Here -->
+          </div>
+        </section>
+
+        <!-- ToDo -->
+        <section class="row">
+          <div class="col-12 fixed-bottom d-flex">
             <div class="card text-light bg-dark shadow ml-auto my-4">
               <div class="card-header text-center">
                 ToDo <span id="todo-count" class="mx-1 badge badge-pill badge-danger"></span>
@@ -41,7 +58,7 @@
               <ul id="todos" class="list-group text-light bg-dark list-group-flush">
                 <!-- Todo tasks render here -->
               </ul>
-              <!-- Add Task Form -->
+              <!-- Add Todo Form -->
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-light bg-dark">
                   <form class="input-group my-1" onsubmit="app.todoController.addTodo(event)">
@@ -54,26 +71,8 @@
               </ul>
             </div>
           </div>
-        </div>
-
-      </section>
-      
-		</main>
-
-		<footer>
-			
+        </section>
 		</footer>
-
-    <div id="quote">
-      The Quote
-    </div>
-
-    <!-- <div>
-      A Todo List
-      <div id="todo-error"></div>
-      <form onsubmit=""></form>
-      <div id="todos"></div>
-    </div> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

@@ -16,13 +16,11 @@ export default class Weather {
 
   get Template() {
     return /*html*/ `
-    <div class="bg-clear">
-      <div>
-        <h5>Today's Weather</h5>
-        <h6 class="text-muted">${this.description[0].description}</p>
-          <span><img id="weather-icon" src="http://openweathermap.org/img/wn/${this.description[0].icon}@2x.png" class="img-fluid"/></span>
-        <h3> ${this.kelvin} </h3>
-      </div>
+    <div class="text-right mt-3 ml-auto">
+        <h5 class="text-light">Today's Weather</h5>
+        <h6 class="text-light text-capitalize">${this.city} - ${this.description[0].description} </p>
+        <img id="weather-icon" src="http://openweathermap.org/img/wn/${this.description[0].icon}@2x.png" class="img-fluid mr-4"/>
+        <h3 class="text-light"> ${this.Fahrenheit} &#8457;</h3>
     </div>
     `
   }
