@@ -5,7 +5,9 @@ import store from "../store.js";
 function _drawTodos() {
   let template = '';
   store.State.todos.forEach(todo => template += todo.template);
+  let todoCount = store.State.todos.length
   document.getElementById('todos').innerHTML = template;
+  if (todoCount > 0) { document.getElementById('todo-count').innerText = todoCount.toString() }
 }
 
 export default class TodoController {

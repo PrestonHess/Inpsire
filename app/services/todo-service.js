@@ -9,7 +9,7 @@ const todoApi = axios.create({
 
 class TodoService {
 
-  // NOTE getTodos is a get request from the todoApi once a response comes back
+  // getTodos is a get request from the todoApi once a response comes back
   // it maps through the todos as a new Todo before commiting to the store
   getTodos() {
     todoApi.get()

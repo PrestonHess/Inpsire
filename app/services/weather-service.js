@@ -7,11 +7,13 @@ const weatherApi = axios.create({
   timeout: 3000
 });
 
+
 class WeatherService {
   async getWeather() {
     console.log("Calling the Weatherman");
     let res = await weatherApi.get();
     store.commit("weather", new Weather(res.data));
+    console.log("weather in store", store.State.weather)
   }
 }
 

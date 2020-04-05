@@ -9,3 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+#weather-icon{
+  max-height: 2rem;
+}

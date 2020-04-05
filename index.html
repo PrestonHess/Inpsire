@@ -24,16 +24,19 @@
 			
 			<section class="container-fluid">
 				<div class="row">
-					<div id="weather" class="col-12">
-						<!-- weather renders here -->
+					<div id="weather" class="d-flex col-12">
+            <!-- weather renders here -->
+            <div class="ml-auto my-4 spinner-border text-light" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
 					</div>
         </div>
         
         <div class="row">
-          <div class="col-12">
-            <div class="card text-light bg-dark shadow m-1" style="width: 18rem;">
+          <div class="col-12 d-flex">
+            <div class="card text-light bg-dark shadow ml-auto my-4">
               <div class="card-header text-center">
-                ToDo
+                ToDo <span id="todo-count" class="mx-1 badge badge-pill badge-danger"></span>
               </div>
               <ul id="todos" class="list-group text-light bg-dark list-group-flush">
                 <!-- Todo tasks render here -->
@@ -50,7 +53,6 @@
                 </li>
               </ul>
             </div>
-
           </div>
         </div>
 
