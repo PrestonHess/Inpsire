@@ -14,7 +14,6 @@ class TodoService {
   getTodos() {
     todoApi.get()
       .then(res => {
-        console.log(res)
         let newTodos = res.data.data.map(todo => new Todo(todo))
         store.commit('todos', newTodos)
       })

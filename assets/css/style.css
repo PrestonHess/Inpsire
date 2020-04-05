@@ -13,3 +13,7 @@
 #weather-icon{
   max-height: 2rem;
 }
+
+.text-wide{
+  font-family: Audiowide;
+}

@@ -10,9 +10,9 @@ export default class Weather {
     return /*html*/ `
     <div class="text-right mt-3 ml-auto">
         <h5 class="text-capitalize">${this.city} Weather</h5>
-        <h6 class="text-capitalize text-muted">${this.description[0].description} </p>
+        <h6 class="text-capitalize">${this.description[0].description} </p>
         <img id="weather-icon" src="http://openweathermap.org/img/wn/${this.description[0].icon}@2x.png" class="img-fluid mr-4"/>
-        <h3> ${this.Fahrenheit} &#8457;</h3>
+        <h4> ${this.Fahrenheit} &#8457;</h4>
     </div>
     `
   }
