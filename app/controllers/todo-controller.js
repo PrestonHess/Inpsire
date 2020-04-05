@@ -8,6 +8,7 @@ function _drawTodos() {
   let todoCount = store.State.todos.length
   document.getElementById('todos').innerHTML = template;
   if (todoCount > 0) { document.getElementById('todo-count').innerText = todoCount.toString() }
+  else if (todoCount < 1) { document.getElementById('todo-count').innerText = ""}
 }
 
 export default class TodoController {

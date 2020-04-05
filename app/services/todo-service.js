@@ -1,5 +1,5 @@
 import store from "../store.js";
-import Todo from "../models/todo.js"
+import Todo from "../models/todo.js";
 
 // @ts-ignore
 const todoApi = axios.create({
@@ -50,13 +50,32 @@ class TodoService {
   // Removes the todo which is identify by the todoID and deleted from the Api
   // getTodos is called to update store after receiving a response from the call request
   removeTodoAsync(todoId) {
-    todoApi.delete(todoId)
-      .then(res => {
-        this.getTodos()
-      })
-      .catch(err => {
-        console.error(err)
-      })
+    // @ts-ignore
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        // @ts-ignore
+        Swal.fire(
+          'Deleted!',
+          'Your Todo Has Been Removed',
+          'success'
+        )
+        todoApi.delete(todoId)
+          .then(res => {
+            this.getTodos()
+          })
+          .catch(err => {
+            console.error(err)
+          })
+      }
+    })
   }
 }
 

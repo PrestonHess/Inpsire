@@ -6,10 +6,27 @@ export default class Quote{
   }
 
   get template() {
+    // Tool-tip
+    // @ts-ignore
+    $(document).ready(function(){
+      // @ts-ignore
+      $('[data-toggle="tooltip"]').tooltip();   
+    });
+
+    // @ts-ignore
+    $(function () {
+      // @ts-ignore
+      $('[data-toggle="tooltip"]').tooltip();
+      // @ts-ignore
+      $('[data-toggle="tooltip"]').on('shown.bs.tooltip', function () {
+          // @ts-ignore
+          $('.tooltip').addClass('animated swing');
+      })
+  })
+
     return /*html*/ `
-      <div class="mx-5">
-      <h6 class="text-muted">${this.quote}</h6>
-      <h6 class="mb-3 text-muted">- ${this.author}</h6>
+      <div class="mb-4 mx-5">
+      <h6 data-toggle="tooltip" class="animated swing" title="${this.author}">"${this.quote}"</h6>
       </div>
     `
   }
