@@ -9,7 +9,7 @@ class TimeService {
 
   get Time(){
     let date = new Date();
-    let h = date.getHours();
+    let h = date.getHours() - 1;
     let m = date.getMinutes();
     let s = date.getSeconds();
     let session = "AM";
